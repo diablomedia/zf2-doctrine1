@@ -1,7 +1,7 @@
 {
     "name": "diablomedia/zf2-doctrine1",
     "description": "ZF2 module for Doctrine 1.x integration",
-    "keywords": ["doctrine1", "zendframework"]
+    "keywords": ["doctrine1", "zendframework"],
     "type": "library",
     "license": "MIT",
     "authors":[
