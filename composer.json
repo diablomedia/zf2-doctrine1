@@ -6,6 +6,11 @@
     "license": "MIT",
     "authors":[
         {
+            "name": "Jay Klehr",
+            "email": "jay@diablomedia.com",
+            "homepage": "http://diablomedia.com/"
+        },
+        {
             "name": "Ari Pringle",
             "email": "ari@diablomedia.com",
             "homepage": "http://diablomedia.com/"

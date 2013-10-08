@@ -35,6 +35,8 @@ class Pager implements AdapterInterface
     public function count()
     {
         if (is_null($this->numResults)) {
+            // The executeCount method requires the diablomedia fork of doctrine1
+            // https://github.com/diablomedia/doctrine1/
             $this->pager->executeCount();
             $this->numResults = $this->pager->getNumResults();
         }
