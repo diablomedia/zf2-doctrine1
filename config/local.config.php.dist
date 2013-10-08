@@ -1,0 +1,26 @@
+<?php
+
+return array(
+    'doctrine1' => array(
+        'connections' => array(
+            'connection1' => array(
+                'server'                     => '',
+                'system'                     => '',
+                'port'                       => '',
+                'user'                       => '',
+                'password'                   => '',
+                'database'                   => ''
+                'enable_query_cache'         => true,
+                'cache_driver_class'         => '\Doctrine_Cache_Apc',
+                // 'result_cache_lifespan'   => 7200,
+                // 'connection_timeout'      => 30,
+                // 'connection_charset'      => 'utf8',
+                // 'collection_class'        => '',
+                // 'auto_free_query_objects' => true,
+                // 'quote_identifier'        => true,
+                // 'use_dql_callbacks'       => true,
+            )
+        ),
+        'default_connection' => 'connection1',
+    ),
+);
