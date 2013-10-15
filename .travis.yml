@@ -10,5 +10,4 @@ before_script:
   - composer update --prefer-source --dev
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover ./build/clover.xml
-  - php build/coverage-checker.php build/clover.xml 55
+  - ./vendor/bin/phpunit
