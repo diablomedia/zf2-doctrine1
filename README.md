@@ -1,5 +1,4 @@
-"!https://travis-ci.org/diablomedia/zf2-doctrine1.png!":https://travis-ci.org/diablomedia/zf2-doctrine1
-
+[![Build Status](https://travis-ci.org/diablomedia/zf2-doctrine1.png)](https://travis-ci.org/diablomedia/zf2-doctrine1)
 zf2-doctrine1
 =============
 
