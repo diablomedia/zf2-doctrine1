@@ -6,8 +6,8 @@ php:
   - 5.5
 
 before_script:
-  - composer update --prefer-source --dev
   - composer self-update
+  - composer update --prefer-source --dev
 
 script:
   - ./vendor/bin/phpunit --coverage-clover ./build/clover.xml
