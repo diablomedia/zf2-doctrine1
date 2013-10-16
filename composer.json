@@ -26,8 +26,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Doctrine1\\": "src/",
-            "Doctrine1Test\\": "tests/"
+            "Doctrine1\\": "src/"
         },
         "classmap": [
             "./Module.php"
