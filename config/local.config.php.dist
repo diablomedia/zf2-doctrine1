@@ -9,7 +9,7 @@ return array(
                 'port'                       => '',
                 'user'                       => '',
                 'password'                   => '',
-                'database'                   => ''
+                'database'                   => '',
                 'enable_query_cache'         => true,
                 'cache_driver_class'         => '\Doctrine_Cache_Apc',
                 // 'result_cache_lifespan'   => 7200,
