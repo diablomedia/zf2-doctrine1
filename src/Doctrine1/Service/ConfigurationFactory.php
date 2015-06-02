@@ -55,8 +55,6 @@ class ConfigurationFactory implements FactoryInterface
             $name
         );
 
-        $manager = Doctrine_Manager::getInstance();
-
         // Query cache (global)
         if (isset($options['enable_query_cache']) && $options['enable_query_cache'] == true) {
             $conn->setAttribute(Doctrine::ATTR_QUERY_CACHE, $cacheDriver);
