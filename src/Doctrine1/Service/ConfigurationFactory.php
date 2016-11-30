@@ -48,8 +48,8 @@ class ConfigurationFactory implements FactoryInterface
     protected function connect($name, $options, $cacheDriver)
     {
         $conn = Doctrine_Manager::connection(
-            $options['system'] . '://' . $options['user'] . ':'
-            . $options['password'] . '@'
+            $options['system'] . '://' . urlencode($options['user']) . ':'
+            . urlencode($options['password']) . '@'
             . $options['server'] . ':' . $options['port'] . '/'
             . $options['database'],
             $name
