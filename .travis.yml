@@ -1,16 +1,16 @@
 language: php
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
   - 5.6
   - 7.0
+  - 7.1
+  - 7.2
+  - nightly
   - hhvm
 
 before_script:
   - composer self-update
-  - composer update --prefer-source --dev
+  - composer update --prefer-source
 
 script:
   - ./vendor/bin/phpunit
@@ -18,4 +18,4 @@ script:
 matrix:
   allow_failures:
     - php: hhvm
-    - php: 7.0
+    - php: nightly
