@@ -16,8 +16,6 @@ if (! isset($loader)) {
     throw new RuntimeException('vendor/autoload.php could not be found. Did you run `php composer.phar install`?');
 }
 
-$loader->add('Doctrine1Test\\', __DIR__);
-
 if (file_exists(__DIR__ . '/TestConfig.php')) {
     $config = require __DIR__ . '/TestConfig.php';
 } else {
