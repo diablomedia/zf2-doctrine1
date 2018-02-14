@@ -12,7 +12,7 @@ use Exception;
 
 class ConfigurationFactory implements FactoryInterface
 {
-    protected $connections = array();
+    protected $connections = [];
 
     // For ZF3
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
@@ -28,7 +28,7 @@ class ConfigurationFactory implements FactoryInterface
 
     protected function create($locator)
     {
-        $config = $locator->get('Config');
+        $config      = $locator->get('Config');
         $cacheDriver = $locator->get('Doctrine1\CacheDriver');
 
         if (!isset($config['doctrine1'])) {
@@ -40,7 +40,7 @@ class ConfigurationFactory implements FactoryInterface
         }
 
         // Set default connection
-        $manager = Doctrine_Manager::getInstance();
+        $manager     = Doctrine_Manager::getInstance();
         $connections = $manager->getConnections();
 
         if (count($connections) > 1 && !empty($config['doctrine1']['default_connection'])) {

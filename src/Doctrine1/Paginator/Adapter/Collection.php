@@ -16,7 +16,7 @@ class Collection implements AdapterInterface
 
     public function getItems($offset, $itemCountPerPage)
     {
-        $a = array();
+        $a = [];
 
         if ($offset < $this->count()) {
             for ($i = 0, $count = $this->count(); $i < $itemCountPerPage && $offset < $count; $i++, $offset++) {

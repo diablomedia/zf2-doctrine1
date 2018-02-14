@@ -13,20 +13,20 @@ class PagerTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $values = array();
+        $values = [];
 
         for ($i = 1; $i <= 100; $i++) {
-            $values[] = array('name' => 'Record ' . $i);
+            $values[] = ['name' => 'Record ' . $i];
         }
 
         // Mock pager
         $this->pager = $this->getMockBuilder('Doctrine_Pager')
             ->disableOriginalConstructor()
-            ->setMethods(array('execute', 'setMaxPerPage', 'setPage', 'getNumResults'))
+            ->setMethods(['execute', 'setMaxPerPage', 'setPage', 'getNumResults'])
             ->getMock();
 
         $this->adapter = new PagerAdapter($this->pager);
-        $this->values = $values;
+        $this->values  = $values;
     }
 
     public function testCountOnlyGetsExecutedOnce()
@@ -35,7 +35,9 @@ class PagerTest extends PHPUnit_Framework_TestCase
 
         $this->pager->expects($this->once())
             ->method('getNumResults')
-            ->will($this->returnCallback(function () use ($values) { return count($values); }));
+            ->will($this->returnCallback(function () use ($values) {
+                return count($values);
+            }));
 
         $this->assertSame(count($values), $this->adapter->count());
         $this->assertSame(count($values), $this->adapter->count());
@@ -61,7 +63,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         // Does phpunit offer a built-in way to do this?
         $pager = $this->getMockBuilder('Doctrine_Pager')
             ->disableOriginalConstructor()
-            ->setMethods(array('executeCount', 'execute', 'setMaxPerPage', 'setPage', 'getNumResults'))
+            ->setMethods(['executeCount', 'execute', 'setMaxPerPage', 'setPage', 'getNumResults'])
             ->getMock();
 
         $pager->expects($this->once())
