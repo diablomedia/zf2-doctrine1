@@ -9,7 +9,7 @@ class Pager implements AdapterInterface
 {
     protected $pager;
 
-    protected $results = array();
+    protected $results = [];
     protected $numResults;
 
     public function __construct(Doctrine_Pager $pager)

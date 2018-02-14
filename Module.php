@@ -9,24 +9,21 @@ class Module implements AutoloaderProviderInterface
 {
     public function getAutoloaderConfig()
     {
-        return array(
-            'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/autoload_classmap.php',
-            ),
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
+        return [
+            'Zend\Loader\StandardAutoloader' => [
+                'namespaces' => [
                     // if we're in a namespace deeper than one level we need to fix the \ in the path
                     __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__),
-                )
+                ]
                 // Put doctrine here as prefixes?
-            ),
-        );
+            ],
+        ];
     }
 
     public function getServiceConfig()
     {
-        return array(
-            'factories' => array(
+        return [
+            'factories' => [
                 'Doctrine1\Configuration' => 'Doctrine1\Service\ConfigurationFactory',
                 'Doctrine1\CacheDriver'   => function ($serviceManager) {
                     $config = $serviceManager->get('Config');
@@ -36,8 +33,8 @@ class Module implements AutoloaderProviderInterface
                         return new $config['cache_driver_class'];
                     }
                 },
-            ),
-        );
+            ],
+        ];
     }
 
     public function getConfig()
@@ -47,6 +44,5 @@ class Module implements AutoloaderProviderInterface
 
     public function onBootstrap(MvcEvent $e)
     {
-
     }
 }

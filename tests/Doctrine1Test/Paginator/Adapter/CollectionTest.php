@@ -12,28 +12,32 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $values = array();
+        $values = [];
 
         for ($i = 1; $i <= 100; $i++) {
-            $values[] = array('name' => 'Record ' . $i);
+            $values[] = ['name' => 'Record ' . $i];
         }
 
         // Mock collection
         $collection = $this->getMockBuilder('Doctrine_Collection')
             ->disableOriginalConstructor()
-            ->setMethods(array('get', 'count'))
+            ->setMethods(['get', 'count'])
             ->getMock();
 
         $collection->expects($this->any())
             ->method('get')
-            ->will($this->returnCallback(function ($index) use ($values) { return $values[$index]; }));
+            ->will($this->returnCallback(function ($index) use ($values) {
+                return $values[$index];
+            }));
 
         $collection->expects($this->any())
             ->method('count')
-            ->will($this->returnCallback(function () use ($values) { return count($values); }));
+            ->will($this->returnCallback(function () use ($values) {
+                return count($values);
+            }));
 
         $this->adapter = new CollectionAdapter($collection);
-        $this->values = $values;
+        $this->values  = $values;
     }
 
     public function testCountReturnsExpectedAmount()
@@ -44,13 +48,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
     public function testAdapterFetchesFirstSetOfItems()
     {
         $this->assertSame(
-            array(
-                array('name' => 'Record 1'),
-                array('name' => 'Record 2'),
-                array('name' => 'Record 3'),
-                array('name' => 'Record 4'),
-                array('name' => 'Record 5'),
-            ),
+            [
+                ['name' => 'Record 1'],
+                ['name' => 'Record 2'],
+                ['name' => 'Record 3'],
+                ['name' => 'Record 4'],
+                ['name' => 'Record 5'],
+            ],
             $this->adapter->getItems(0, 5)
         );
     }
@@ -58,13 +62,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
     public function testAdapterFetchesSecondSetOfItems()
     {
         $this->assertSame(
-            array(
-                array('name' => 'Record 6'),
-                array('name' => 'Record 7'),
-                array('name' => 'Record 8'),
-                array('name' => 'Record 9'),
-                array('name' => 'Record 10'),
-            ),
+            [
+                ['name' => 'Record 6'],
+                ['name' => 'Record 7'],
+                ['name' => 'Record 8'],
+                ['name' => 'Record 9'],
+                ['name' => 'Record 10'],
+            ],
             $this->adapter->getItems(5, 5)
         );
     }
@@ -72,13 +76,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
     public function testAdapterReturnsLastSetOfItemsLessThanPerPageCount()
     {
         $this->assertSame(
-            array(
-                array('name' => 'Record 96'),
-                array('name' => 'Record 97'),
-                array('name' => 'Record 98'),
-                array('name' => 'Record 99'),
-                array('name' => 'Record 100'),
-            ),
+            [
+                ['name' => 'Record 96'],
+                ['name' => 'Record 97'],
+                ['name' => 'Record 98'],
+                ['name' => 'Record 99'],
+                ['name' => 'Record 100'],
+            ],
             $this->adapter->getItems(95, 30)
         );
     }
