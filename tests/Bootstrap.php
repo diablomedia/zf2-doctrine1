@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', (string) E_ALL);
 
 $files = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php'];
 

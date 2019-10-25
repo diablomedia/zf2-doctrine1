@@ -1,17 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Doctrine1Test\Paginator\Adapter;
 
 use Doctrine1\Paginator\Adapter\Pager as PagerAdapter;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class PagerTest extends PHPUnit_Framework_TestCase
+class PagerTest extends TestCase
 {
     protected $adapter;
     protected $pager;
     protected $values;
 
-    public function setUp()
+    public function setUp(): void
     {
         $values = [];
 
@@ -29,7 +29,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $this->values  = $values;
     }
 
-    public function testCountOnlyGetsExecutedOnce()
+    public function testCountOnlyGetsExecutedOnce(): void
     {
         $values = $this->values;
 
@@ -43,7 +43,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $this->assertSame(count($values), $this->adapter->count());
     }
 
-    public function testCountHitsExecuteIfExecuteCountNotAvailable()
+    public function testCountHitsExecuteIfExecuteCountNotAvailable(): void
     {
         $values = $this->values;
 
@@ -54,7 +54,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $this->adapter->count();
     }
 
-    public function testCountHitsExecuteCountIfAvailable()
+    public function testCountHitsExecuteCountIfAvailable(): void
     {
         $values = $this->values;
 
@@ -75,7 +75,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $adapter->count();
     }
 
-    public function testGetItemsOnlyCallsExecuteOnceForSameOffsetCountCombo()
+    public function testGetItemsOnlyCallsExecuteOnceForSameOffsetCountCombo(): void
     {
         $values = $this->values;
 
@@ -87,7 +87,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $this->adapter->getItems(0, 5);
     }
 
-    public function testGetItemsCallsExecuteIfOffsetChanges()
+    public function testGetItemsCallsExecuteIfOffsetChanges(): void
     {
         $values = $this->values;
 
@@ -99,7 +99,7 @@ class PagerTest extends PHPUnit_Framework_TestCase
         $this->adapter->getItems(5, 5);
     }
 
-    public function testGetItemsCallsExecuteIfPerPageChanges()
+    public function testGetItemsCallsExecuteIfPerPageChanges(): void
     {
         $values = $this->values;
 

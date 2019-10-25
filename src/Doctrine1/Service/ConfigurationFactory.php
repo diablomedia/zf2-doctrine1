@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Doctrine1\Service;
 
@@ -97,13 +97,13 @@ class ConfigurationFactory implements FactoryInterface
         // Identifier Quoting
         $conn->setAttribute(
             Doctrine_Core::ATTR_QUOTE_IDENTIFIER,
-            isset($options['quote_identifier']) ? $options['quote_identifier'] : true
+            $options['quote_identifier'] ?? true
         );
 
         // Callbacks (for timestampable and other behaviors)
         $conn->setAttribute(
             Doctrine_Core::ATTR_USE_DQL_CALLBACKS,
-            isset($options['use_dql_callbacks']) ? $options['use_dql_callbacks'] : true
+            $options['use_dql_callbacks'] ?? true
         );
 
         return $conn;
