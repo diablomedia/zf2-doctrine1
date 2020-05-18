@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Doctrine1;
 
@@ -42,7 +42,7 @@ class Module implements AutoloaderProviderInterface
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function onBootstrap(MvcEvent $e)
+    public function onBootstrap(MvcEvent $e): void
     {
     }
 }

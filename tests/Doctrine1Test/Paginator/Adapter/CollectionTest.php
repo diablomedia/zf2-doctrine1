@@ -1,16 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Doctrine1Test\Paginator\Adapter;
 
 use Doctrine1\Paginator\Adapter\Collection as CollectionAdapter;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class CollectionTest extends PHPUnit_Framework_TestCase
+class CollectionTest extends TestCase
 {
     protected $adapter;
     protected $values;
 
-    public function setUp()
+    public function setUp(): void
     {
         $values = [];
 
@@ -40,12 +40,12 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->values  = $values;
     }
 
-    public function testCountReturnsExpectedAmount()
+    public function testCountReturnsExpectedAmount(): void
     {
         $this->assertSame(count($this->values), $this->adapter->count());
     }
 
-    public function testAdapterFetchesFirstSetOfItems()
+    public function testAdapterFetchesFirstSetOfItems(): void
     {
         $this->assertSame(
             [
@@ -59,7 +59,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testAdapterFetchesSecondSetOfItems()
+    public function testAdapterFetchesSecondSetOfItems(): void
     {
         $this->assertSame(
             [
@@ -73,7 +73,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testAdapterReturnsLastSetOfItemsLessThanPerPageCount()
+    public function testAdapterReturnsLastSetOfItemsLessThanPerPageCount(): void
     {
         $this->assertSame(
             [
