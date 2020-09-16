@@ -5,4 +5,4 @@ zf2-doctrine1
 [![Total Downloads](https://poser.pugx.org/diablomedia/zf2-doctrine1/downloads)](https://packagist.org/packages/diablomedia/zf2-doctrine1)
 [![License](https://poser.pugx.org/diablomedia/zf2-doctrine1/license)](https://packagist.org/packages/diablomedia/zf2-doctrine1)
 
-Zend Framework 2 module to integrate with Doctrine 1.x
+Laminas module to integrate with Doctrine 1.x

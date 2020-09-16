@@ -2,7 +2,7 @@
 
 namespace Doctrine1\Paginator\Adapter;
 
-use Zend\Paginator\Adapter\AdapterInterface;
+use Laminas\Paginator\Adapter\AdapterInterface;
 use Doctrine_Collection;
 
 class Collection implements AdapterInterface
