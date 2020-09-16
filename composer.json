@@ -1,10 +1,14 @@
 {
     "name": "diablomedia/zf2-doctrine1",
     "description": "ZF2 module for Doctrine 1.x integration",
-    "keywords": ["doctrine1", "zendframework"],
+    "keywords": [
+        "doctrine1",
+        "zendframework",
+        "laminas"
+    ],
     "type": "library",
     "license": "MIT",
-    "authors":[
+    "authors": [
         {
             "name": "Jay Klehr",
             "email": "jay@diablomedia.com",
@@ -20,8 +24,8 @@
     "require": {
         "doctrine/doctrine1": "^1.2.0",
         "php": ">=7.1.0",
-        "zendframework/zend-paginator": "^2.2.0",
-        "zendframework/zend-servicemanager": "^2.0 || ^3.0"
+        "laminas/laminas-paginator": "^2.2.0",
+        "laminas/laminas-servicemanager": "^2.0 || ^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "2.15.3",

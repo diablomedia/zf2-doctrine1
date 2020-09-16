@@ -2,7 +2,7 @@
 
 namespace Doctrine1\Paginator\Adapter;
 
-use Zend\Paginator\Adapter\AdapterInterface;
+use Laminas\Paginator\Adapter\AdapterInterface;
 use Doctrine_Pager;
 
 class Pager implements AdapterInterface
