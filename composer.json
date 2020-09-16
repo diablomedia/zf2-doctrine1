@@ -24,12 +24,12 @@
     "require": {
         "doctrine/doctrine1": "^1.2.0",
         "php": ">=7.1.0",
-        "laminas/laminas-paginator": "^2.2.0",
+        "laminas/laminas-paginator": "^2.4.0",
         "laminas/laminas-servicemanager": "^2.0 || ^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "2.15.3",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.5"
     },
     "autoload": {
         "psr-0": {
