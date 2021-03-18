@@ -23,8 +23,8 @@
     "homepage": "https://github.com/diablomedia/zf2-doctrine1",
     "require": {
         "doctrine/doctrine1": "^1.2.0",
-        "php": "^7.1 || ^8.0",
-        "laminas/laminas-paginator": "^2.4.0",
+        "php": "^7.3 || ^8.0",
+        "laminas/laminas-paginator": "^2.10.0",
         "laminas/laminas-servicemanager": "^2.0 || ^3.0",
         "phpstan/phpstan-phpunit": "^0.12.18",
         "container-interop/container-interop": "^1.2",
