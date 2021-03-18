@@ -3,30 +3,35 @@
 namespace Doctrine1\Service;
 
 use Interop\Container\ContainerInterface;
-use Laminas\ServiceManager\FactoryInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 use Doctrine_Core;
 use Doctrine_Manager;
 use Exception;
+use Doctrine_Connection;
+use Doctrine_Manager_Exception;
+use Doctrine_Exception;
+use Doctrine_Cache_Driver;
 
 class ConfigurationFactory implements FactoryInterface
 {
+    /**
+     * @var array<Doctrine_Connection>
+     */
     protected $connections = [];
 
-    // For ZF3
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         return $this->create($container);
     }
 
-    // For older ZF2
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-        return $this->create($serviceLocator);
-    }
-
-    protected function create($locator)
+    /**
+     * @return array<Doctrine_Connection>
+     * @throws Exception
+     * @throws Doctrine_Manager_Exception
+     * @throws Doctrine_Exception
+     */
+    protected function create(ContainerInterface $locator): array
     {
         $config      = $locator->get('Config');
         $cacheDriver = $locator->get('Doctrine1\CacheDriver');
@@ -57,7 +62,7 @@ class ConfigurationFactory implements FactoryInterface
         return $this->connections;
     }
 
-    protected function connect($name, $options, $cacheDriver)
+    protected function connect(string $name, array $options, Doctrine_Cache_Driver $cacheDriver): Doctrine_Connection
     {
         $conn = Doctrine_Manager::connection(
             $options['system'] . '://' . urlencode($options['user']) . ':'

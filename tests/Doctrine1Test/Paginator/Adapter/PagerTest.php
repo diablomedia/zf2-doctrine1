@@ -4,11 +4,23 @@ namespace Doctrine1Test\Paginator\Adapter;
 
 use Doctrine1\Paginator\Adapter\Pager as PagerAdapter;
 use PHPUnit\Framework\TestCase;
+use Doctrine_Pager;
 
 class PagerTest extends TestCase
 {
+    /**
+     * @var PagerAdapter
+     */
     protected $adapter;
+
+    /**
+     * @var Doctrine_Pager&\PHPUnit\Framework\MockObject\MockObject
+     */
     protected $pager;
+
+    /**
+     * @var array<int, array<string, string>>
+     */
     protected $values;
 
     public function setUp(): void
@@ -20,9 +32,9 @@ class PagerTest extends TestCase
         }
 
         // Mock pager
-        $this->pager = $this->getMockBuilder('Doctrine_Pager')
+        $this->pager = $this->getMockBuilder(Doctrine_Pager::class)
             ->disableOriginalConstructor()
-            ->setMethods(['execute', 'setMaxPerPage', 'setPage', 'getNumResults'])
+            ->onlyMethods(['execute', 'setMaxPerPage', 'setPage', 'getNumResults'])
             ->getMock();
 
         $this->adapter = new PagerAdapter($this->pager);

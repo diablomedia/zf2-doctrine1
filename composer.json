@@ -23,13 +23,20 @@
     "homepage": "https://github.com/diablomedia/zf2-doctrine1",
     "require": {
         "doctrine/doctrine1": "^1.2.0",
-        "php": ">=7.1.0",
+        "php": "^7.1 || ^8.0",
         "laminas/laminas-paginator": "^2.4.0",
-        "laminas/laminas-servicemanager": "^2.0 || ^3.0"
+        "laminas/laminas-servicemanager": "^2.0 || ^3.0",
+        "phpstan/phpstan-phpunit": "^0.12.18",
+        "container-interop/container-interop": "^1.2",
+        "laminas/laminas-modulemanager": "^2.10",
+        "laminas/laminas-mvc": "^3.2"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "2.15.3",
-        "phpunit/phpunit": "^7.5"
+        "friendsofphp/php-cs-fixer": "2.18.3",
+        "phpunit/phpunit": "^8.5",
+        "phpstan/phpstan": "0.12.81",
+        "maglnet/composer-require-checker": "^2.0 || ^3.0",
+        "phpro/grumphp-shim": "^0.22.0 || ^1.1"
     },
     "autoload": {
         "psr-0": {
@@ -48,6 +55,7 @@
         "fix-style": "php-cs-fixer fix",
         "check-style": "php-cs-fixer fix --dry-run -vv",
         "test-with-coverage": "phpunit --coverage-clover=clover.xml",
-        "test": "phpunit"
+        "test": "phpunit",
+        "phpstan": "phpstan analyze -c phpstan.neon --no-progress --ansi --memory-limit=768M"
     }
 }

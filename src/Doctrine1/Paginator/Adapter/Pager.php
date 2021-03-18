@@ -3,13 +3,29 @@
 namespace Doctrine1\Paginator\Adapter;
 
 use Laminas\Paginator\Adapter\AdapterInterface;
+use Doctrine_Collection;
+use Doctrine_Connection_Exception;
+use Doctrine_Hydrator_Exception;
 use Doctrine_Pager;
+use Doctrine_Pager_Exception;
+use Doctrine_Query_Exception;
+use Doctrine_Record;
 
 class Pager implements AdapterInterface
 {
+    /**
+     * @var Doctrine_Pager
+     */
     protected $pager;
 
+    /**
+     * @var array<string, Doctrine_Collection>
+     */
     protected $results = [];
+
+    /**
+     * @var int|null
+     */
     protected $numResults;
 
     public function __construct(Doctrine_Pager $pager)
@@ -17,6 +33,13 @@ class Pager implements AdapterInterface
         $this->pager = $pager;
     }
 
+    /**
+     * @return Doctrine_Collection<Doctrine_Record>
+     * @throws Doctrine_Pager_Exception
+     * @throws Doctrine_Query_Exception
+     * @throws Doctrine_Connection_Exception
+     * @throws Doctrine_Hydrator_Exception
+     */
     public function getItems($offset, $itemCountPerPage)
     {
         // Caching results for the offset/itemcount
