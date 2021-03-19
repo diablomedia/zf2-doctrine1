@@ -1,0 +1,27 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Doctrine1\\\\Service\\\\ConfigurationFactory\\:\\:__invoke\\(\\) should return object but returns array\\<Doctrine_Connection\\>\\.$#"
+			count: 1
+			path: src/Doctrine1/Service/ConfigurationFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$adapter of static method Doctrine_Manager\\:\\:connection\\(\\) expects Doctrine_Adapter_Interface\\|PDO\\|null, string given\\.$#"
+			count: 1
+			path: src/Doctrine1/Service/ConfigurationFactory.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\(array\\('name' \\=\\> 'Record 1'\\), array\\('name' \\=\\> 'Record 2'\\), array\\('name' \\=\\> 'Record 3'\\), array\\('name' \\=\\> 'Record 4'\\), array\\('name' \\=\\> 'Record 5'\\)\\) and array\\<int, Doctrine_Record\\> will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Doctrine1Test/Paginator/Adapter/CollectionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\(array\\('name' \\=\\> 'Record 6'\\), array\\('name' \\=\\> 'Record 7'\\), array\\('name' \\=\\> 'Record 8'\\), array\\('name' \\=\\> 'Record 9'\\), array\\('name' \\=\\> 'Record 10'\\)\\) and array\\<int, Doctrine_Record\\> will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Doctrine1Test/Paginator/Adapter/CollectionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\(array\\('name' \\=\\> 'Record 96'\\), array\\('name' \\=\\> 'Record 97'\\), array\\('name' \\=\\> 'Record 98'\\), array\\('name' \\=\\> 'Record 99'\\), array\\('name' \\=\\> 'Record 100'\\)\\) and array\\<int, Doctrine_Record\\> will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Doctrine1Test/Paginator/Adapter/CollectionTest.php
+

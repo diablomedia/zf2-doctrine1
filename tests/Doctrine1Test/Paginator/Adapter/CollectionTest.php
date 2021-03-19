@@ -4,10 +4,18 @@ namespace Doctrine1Test\Paginator\Adapter;
 
 use Doctrine1\Paginator\Adapter\Collection as CollectionAdapter;
 use PHPUnit\Framework\TestCase;
+use Doctrine_Collection;
 
 class CollectionTest extends TestCase
 {
+    /**
+     * @var CollectionAdapter
+     */
     protected $adapter;
+
+    /**
+     * @var array<int, array<string, string>>
+     */
     protected $values;
 
     public function setUp(): void
@@ -19,9 +27,9 @@ class CollectionTest extends TestCase
         }
 
         // Mock collection
-        $collection = $this->getMockBuilder('Doctrine_Collection')
+        $collection = $this->getMockBuilder(Doctrine_Collection::class)
             ->disableOriginalConstructor()
-            ->setMethods(['get', 'count'])
+            ->onlyMethods(['get', 'count'])
             ->getMock();
 
         $collection->expects($this->any())

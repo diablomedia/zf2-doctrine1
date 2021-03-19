@@ -4,3 +4,4 @@ vendor
 clover.xml
 .php_cs.cache
 autoload_classmap.php
+.phpunit.result.cache
