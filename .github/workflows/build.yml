@@ -54,7 +54,7 @@ jobs:
             - name: Test
               run: composer test-with-coverage
             - name: Upload Coverage
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v2.0.2
               with:
                   files: ./clover.xml
     merge-me:
